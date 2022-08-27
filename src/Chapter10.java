@@ -12,15 +12,9 @@ public class Chapter10 {
 		list.add(new Task(LocalDate.of(2021, 11, 9), "スクールの課題を解く", false));
 
 		// 以下記述
-		List<Task> filtered = new ArrayList<>();
+		long count = list.stream().filter(f -> f.isDone() == false).count();
 
-		for (Task task : list) {
-			if (task.isDone() == false) {
-				filtered.add(task);
-			}
-		}
-
-		System.out.println("未完了のタスクの個数は" + filtered.size());
+		System.out.println("未完了のタスクの個数は" + count);
 
 		System.out.println("【未完了のタスクを昇順に並び替えて一覧表示】");
 
